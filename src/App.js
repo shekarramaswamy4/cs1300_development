@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import data from './data';
+import { data } from './data';
 import FilteredList from './list/FilteredList';
 
 class App extends Component {

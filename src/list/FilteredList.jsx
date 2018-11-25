@@ -12,7 +12,7 @@ class FilteredList extends Component {
     this.state = {
       brand: "",
       color: "",
-      sorted: ""
+      sorted: "des"
     };
 }
 
@@ -33,7 +33,18 @@ filterItem = (item) => {
 }
 
 sortItems = (items) => {
+    if (this.state.sorted === "") {
+        return items;
+    } 
+    items.sort((a, b) => a.price - b.price);
+    if (this.state.sorted === "des") {
+        items.reverse();
+    }
     return items;
+}
+
+reset = () => {
+    this.setState({ brand: "", color: "", sorted: "" })
 }
 
 render() {
