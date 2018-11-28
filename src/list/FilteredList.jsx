@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import List from './List';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 /*
  * Handles filtering logic for items. Supports brand and color filtering,
  *   and price sorting. 
@@ -50,20 +52,20 @@ sortItems = (items) => {
 }
 
 reset = () => {
-    this.setState({ brand: "All", color: "All", sorted: "" })
+    this.setState({ brand: "All", color: "All", sorted: "" }) 
 }
 
 render() {
   return (
     <div className="filter-list">
-      <DropdownButton id="brandDropdown" title={this.state.brand}>
+      <DropdownButton id="brandDropdown" title={this.state.brand} noCaret>
         <MenuItem eventKey="All" onSelect={() => this.dropDownSelect('All', 'brand')}>All</MenuItem>
         <MenuItem eventKey="Nike" onSelect={() => this.dropDownSelect('Nike', 'brand')}>Nike</MenuItem>
         <MenuItem eventKey="Adidas" onSelect={() => this.dropDownSelect('Adidas', 'brand')}>Adidas</MenuItem>
         <MenuItem eventKey="Puma" onSelect={() => this.dropDownSelect('Puma', 'brand')}>Puma</MenuItem>
       </DropdownButton>
 
-      <DropdownButton id="colorDropdown" title={this.state.color}>
+      <DropdownButton id="colorDropdown" title={this.state.color} noCaret>
         <MenuItem eventKey="All" onSelect={() => this.dropDownSelect('All', 'color')}>All</MenuItem>
         <MenuItem eventKey="White" onSelect={() => this.dropDownSelect('White', 'color')}>White</MenuItem>
         <MenuItem eventKey="Black" onSelect={() => this.dropDownSelect('Black', 'color')}>Black</MenuItem>
