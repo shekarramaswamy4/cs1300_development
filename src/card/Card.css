@@ -1,0 +1,13 @@
+.card-wrapper {
+    display: flex;
+    flex: 1;
+    align-self: center;
+    width: 80%;
+    height: 10%;
+    justify-content: center;
+}
+
+.image {
+    height: 20%;
+    width: 50%;
+}

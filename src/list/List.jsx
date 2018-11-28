@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Card from '../card/Card';
+import '../App.css';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 /*
  * This list component renders the items that are passed to it via props.
@@ -6,18 +9,42 @@ import React, { Component } from 'react';
 */
 class List extends Component { 
 
+
+
   renderList() {
-    const items = this.props.items.map(item => {
-      return <li key={item.name}>{item.name}</li>
+
+    const data = this.props.items;
+
+    var rowSize = 3;
+    var splitted = [];
+
+    data.forEach((item)=>{
+      if(!splitted.length || splitted[splitted.length-1].length === rowSize)
+      splitted.push([]);
+
+      splitted[splitted.length-1].push(item);
     });
-    return items;
+
+    const grid = splitted.map(item => {
+      return(
+      <Row>
+        {item.map(card => {
+          return(
+            <Card key={card.name} data={card}/>
+          )
+        })}
+      </Row>)
+    });
+    return grid;
   }
   
   render() {
     return (
-      <ul>
-        {this.renderList()}
-      </ul>
+      <div>
+        <Grid>
+          {this.renderList()}
+        </Grid>
+      </div>
     );
   }
 }
