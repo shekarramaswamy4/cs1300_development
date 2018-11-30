@@ -10,6 +10,15 @@ class Card extends Component {
   render() {
     const item = this.props.data;
 
+    // need to find a better way to conditionally render div 
+    if (item.name === "hidden") {
+      return (
+        <div className="card-wrapper-hide">
+          <Thumbnail src={item.img} className="image" />
+        </div>
+      );
+    }
+
     return (
       <div className="card-wrapper">
         <Thumbnail src={item.img} className="image">
