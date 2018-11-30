@@ -30,10 +30,10 @@ class List extends Component {
     });
 
     // filling the grid with dummy elements to maintain order
-    if (splitted[splitted.length - 1].length == 1) {
+    if (splitted[splitted.length - 1].length === 1) {
       splitted[splitted.length-1].push(dummyCard);
     }
-    if (splitted[splitted.length - 1].length == 2) {
+    if (splitted[splitted.length - 1].length === 2) {
       splitted[splitted.length-1].push(dummyCard);
     }
 
