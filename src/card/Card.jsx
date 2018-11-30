@@ -13,8 +13,9 @@ class Card extends Component {
     return (
       <div className="card-wrapper">
         <Thumbnail src={item.img} className="image">
-          <h3>{item.name} ({item.color})</h3>
-            <p>${item.price}</p>
+          <h3>{item.name}</h3>
+            <p>{item.color} • ${item.price}</p>
+            <p></p>
             <p>
             <Button bsStyle="primary">Add to Cart</Button>
           </p>
