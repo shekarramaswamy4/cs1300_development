@@ -10,18 +10,11 @@ class Card extends Component {
   render() {
     const item = this.props.data;
 
-    // need to find a better way to conditionally render div 
-    if (item.name === "hidden") {
-      return (
-        <div className="card-wrapper-hide">
-          <Thumbnail src={item.img} className="image" />
-        </div>
-      );
-    }
-
+    // return statement hides the card if its name field is hidden (for spacing)
     return (
       <div className="card-wrapper">
-        <Thumbnail src={item.img} className="image">
+        <Thumbnail src={item.img} className="image" 
+          style={item.name === "hidden" ? { visibility: "hidden" } : {}}>
           <h3>{item.name}</h3>
             <p>{item.color} • ${item.price}</p>
             <p></p>
