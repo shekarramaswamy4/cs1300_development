@@ -56,6 +56,24 @@ reset = () => {
     this.setState({ brand: "All Brands", color: "All Colors", sorted: "No sort" })
 }
 
+
+/**
+ * Shuffles array in place, using Fisher Yates algorithm
+ * @param {Array} a items An array containing the items.
+ * PLEASE NOTE THAT THIS SHUFFLE WAS TAKEN FROM STACK OVER FLOW!
+ * https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array 
+ */
+shuffle = (a) => {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+  }
+  return a;
+}
+
 render() {
   const isDefault = this.state.brand === "All Brands" 
     && this.state.color === "All Colors" 
@@ -77,6 +95,7 @@ render() {
         <MenuItem eventKey="White" onSelect={() => this.dropDownSelect('White', 'color')}>White</MenuItem>
         <MenuItem eventKey="Black" onSelect={() => this.dropDownSelect('Black', 'color')}>Black</MenuItem>
         <MenuItem eventKey="Red" onSelect={() => this.dropDownSelect('Red', 'color')}>Red</MenuItem>
+        <MenuItem eventKey="Green" onSelect={() => this.dropDownSelect('Green', 'color')}>Green</MenuItem>
       </DropdownButton>
       <DropdownButton id="sortBy" title={this.state.sorted} noCaret>
         <MenuItem eventKey="No sort" onSelect={() => this.dropDownSelect('No sort', 'sorted')}>No sort</MenuItem>
@@ -96,7 +115,9 @@ render() {
         {/*
           First filter, then sort the remaining items. 
         */} 
-        <List items={this.sortItems(this.props.items.filter(this.filterItem))} />
+        { isDefault ? 
+          <List items={this.shuffle(this.props.items)}/> : 
+          <List items={this.sortItems(this.props.items.filter(this.filterItem))} /> }
       </div>
     );
   }
