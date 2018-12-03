@@ -12,7 +12,7 @@ class App extends Component {
       <PageHeader>
         SneakerCon
         <p></p>
-        <small>find the shoes your mom would never let you get...</small>
+        <small>the world's coolest new shoes!</small>
       </PageHeader>
       <FilteredList items={data}/>
       </div>

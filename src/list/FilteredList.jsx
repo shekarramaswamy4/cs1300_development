@@ -60,7 +60,7 @@ reset = () => {
 /**
  * Shuffles array in place, using Fisher Yates algorithm
  * @param {Array} a items An array containing the items.
- * PLEASE NOTE THAT THIS SHUFFLE WAS TAKEN FROM STACK OVER FLOW!
+ * PLEASE NOTE THAT THIS SHUFFLE WAS ADAPTED FROM STACKOVERFLOW!
  * https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array 
  */
 shuffle = (a) => {
