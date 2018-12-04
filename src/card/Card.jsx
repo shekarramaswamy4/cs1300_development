@@ -10,7 +10,7 @@ class Card extends Component {
   render() {
     const item = this.props.data;
 
-    let link = "https://www.google.com/search?q=" + item.name
+    let link = "https://www.google.com/search?q=" + item.name + item.color
     // return statement hides the card if its name field is hidden (for spacing)
     return (
       <div className="card-wrapper">
